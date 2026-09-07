@@ -2,7 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 
-#progams, #internship, #contact {
+#programs, #internship, #contact {
     scroll-margin-top: 100px;
 }
 
@@ -13,6 +13,7 @@ html {
     --text-secondary: #565d73;
     --bg-main: #fcfcf9;
     --bg-muted: #f3f4f0;
+    --bg-card: #ffffff;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --transition-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -31,7 +32,9 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* NAVIGATION BAR */
+/* ==========================================
+   NAVIGATION BAR
+   ========================================== */
 nav {
     display: flex;
     align-items: center;
@@ -51,7 +54,7 @@ nav .logo {
 }
 
 nav .logo img {
-    height: 100px; 
+    height: 96px; 
     width: auto;
     display: block;
     object-fit: contain;
@@ -69,7 +72,9 @@ nav a:not(.logo):hover {
     color: var(--brand-accent);
 }
 
-/*    HERO / INTRO SECTION */
+/* ==========================================
+   HERO / INTRO SECTION
+   ========================================== */
 main {
     max-width: 1140px;
     margin: 0 auto;
@@ -149,19 +154,23 @@ main {
     transform: translateY(-2px);
 }
 
-/*    PROGRAMS DISPLAY GRID */
+/* ==========================================
+   UPDATED PROGRAMS EXPERIENCE (TASK 2)
+   ========================================== */
 .programs {
     background-color: var(--bg-muted);
     padding: 80px 48px;
     border-radius: 12px;
     margin-bottom: 96px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
 }
 
-.programs > h2 {
+.programs-intro {
     text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px auto;
+}
+
+.programs-intro h2 {
     color: var(--brand-dark);
     font-size: 35px;
     font-weight: 700;
@@ -169,42 +178,133 @@ main {
     margin-bottom: 16px;
 }
 
-.data-analytics, .web-development {
+.programs-intro p {
+    color: var(--text-secondary);
+    font-size: 18px;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.program-card {
     background: var(--bg-card);
     padding: 48px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
     transition: all 300ms var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
 }
 
-.data-analytics:hover, .web-development:hover {
+.program-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
     border-color: rgba(0, 0, 0, 0.1);
 }
 
-.programs h2 {
+.data-analytics-track {
+    border-top: 5px solid var(--brand-dark);
+}
+
+.web-development-track {
+    border-top: 5px solid var(--brand-accent);
+}
+
+.track-tag {
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    background-color: var(--bg-muted);
+    color: var(--text-secondary);
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.program-card h2 {
     color: var(--brand-dark);
-    margin-bottom: 19px;
-    font-size: 26px;
+    margin-bottom: 14px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.track-desc {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+.skills-section {
+    margin-bottom: 32px;
+    background-color: var(--bg-main);
+    padding: 24px;
+    border-radius: 6px;
+    flex-grow: 1;
+}
+
+.skills-section h3 {
+    font-size: 15px;
+    color: var(--brand-dark);
+    margin-bottom: 16px;
     font-weight: 600;
 }
 
-.programs p {
-    color: var(--text-secondary);
+.skills-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list li {
+    font-size: 14px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    font-weight: 500;
+}
+
+.program-cta-btn {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 300ms var(--transition-smooth);
+    width: 100%;
+}
+
+.primary-track-btn {
+    background-color: var(--brand-dark);
+    color: var(--bg-main);
+}
+
+.primary-track-btn:hover {
+    background-color: var(--brand-accent);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 768px) {
-    .programs {
+    .programs-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-    .programs > h2 {
-        grid-column: span 2;
     }
 }
 
-/*    INTERNSHIP VALUE LAYOUT */
+/* ==========================================
+   INTERNSHIP VALUE LAYOUT
+   ========================================== */
 .internship {
     max-width: 760px;
     margin: 0 auto 96px auto;
@@ -257,7 +357,9 @@ main {
     font-weight: bold;
 }
 
-/*    CONTACT BRIDGING FOOTER */
+/* ==========================================
+   CONTACT BRIDGING FOOTER
+   ========================================== */
 .contact {
     text-align: center;
     background: var(--brand-dark);
@@ -306,7 +408,9 @@ main {
     color: var(--brand-dark);
 }
 
-/*    MOBILE LAYOUT */
+/* ==========================================
+   MOBILE LAYOUT
+   ========================================== */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -315,7 +419,7 @@ main {
     }
 
     nav .logo img {
-        height: 100px;
+        height: 80px;
     }
     
     .header h1 {
