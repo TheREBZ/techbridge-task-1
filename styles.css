@@ -33,7 +33,7 @@ body {
 }
 
 /* ==========================================
-   NAVIGATION BAR
+   NAVIGATION BAR (DESKTOP)
    ========================================== */
 nav {
     display: flex;
@@ -155,7 +155,7 @@ main {
 }
 
 /* ==========================================
-   UPDATED PROGRAMS EXPERIENCE (TASK 2)
+   PROGRAMS EXPERIENCE (TASK 2)
    ========================================== */
 .programs {
     background-color: var(--bg-muted);
@@ -296,11 +296,205 @@ main {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+
+
+/* ==========================================
+   CONTACT BRIDGING FOOTER
+   ========================================== */
+.contact {
+    text-align: center;
+    background: var(--brand-dark);
+    color: var(--bg-main);
+    padding: 80px 32px;
+    border-radius: 12px;
+    margin-bottom: 96px;
+}
+
+.contact h1 {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 19px;
+}
+
+.contact p {
+    margin-bottom: 40px;
+    color: rgba(252, 252, 249, 0.75);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact .cta-btn {
+    background: var(--bg-main);
+    color: var(--brand-dark);
+}
+
+.contact .cta-btn:hover {
+    background: var(--brand-accent);
+    color: var(--bg-main);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
 @media (min-width: 768px) {
     .programs-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+@media (min-width: 768px) {
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.internship {
+    max-width: 1140px;
+    margin: 0 auto 96px auto;
+}
+
+.internship-intro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 56px auto;
+}
+
+.internship-intro h1 {
+    color: var(--brand-dark);
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.internship-intro p {
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-bottom: 32px;
+}
+
+.benefits-summary {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .benefits-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+.benefit-item {
+    background: var(--bg-card);
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.benefit-item strong {
+    color: var(--brand-dark);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.timeline-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 56px;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .timeline-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.timeline-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    border-radius: 8px;
+    transition: all 300ms var(--transition-smooth);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.timeline-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.active-task {
+    border: 2px solid var(--brand-accent);
+    box-shadow: 0 8px 24px rgba(46, 125, 50, 0.06);
+}
+
+.timeline-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--bg-muted);
+    padding-bottom: 12px;
+}
+
+.task-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.task-day {
+    font-size: 13px;
+    background-color: var(--brand-dark);
+    color: var(--bg-main);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.timeline-card h2 {
+    font-size: 22px;
+    color: var(--brand-dark);
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.timeline-card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.timeline-badge {
+    position: absolute;
+    top: -14px;
+    right: 24px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.phase-beginner { background-color: #e0f2fe; color: #0369a1; }
+.phase-intermediate-bg { background-color: #fef3c7; color: #b45309; }
+.phase-intermediate { background-color: #f3e8ff; color: #6b21a8; }
+.phase-advanced-bg { background-color: #e0f2f1; color: #004d40; }
+.phase-advanced { background-color: #fee2e2; color: #b91c1c; }
 
 /* ==========================================
    INTERNSHIP VALUE LAYOUT
@@ -389,7 +583,7 @@ main {
 }
 
 .contact .cta-btn:hover {
-    background: var(--bg-muted);
+    background: var(--brand-accent);
     transform: translateY(-2px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
