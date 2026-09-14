@@ -66,10 +66,12 @@ nav a {
     font-weight: 500;
     letter-spacing: -0.01em;
     transition: color 250ms var(--transition-smooth);
+    transition: transform 0.3s ease;
 }
 
 nav a:not(.logo):hover {
     color: var(--brand-accent);
+    transform: translateY(3px);
 }
 
 /* ==========================================
@@ -601,6 +603,52 @@ main {
     font-weight: 600;
     color: var(--brand-dark);
 }
+
+/* ==========================================
+   TRACK SELECTOR INTERFACE COMPONENT STYLES
+   ========================================== */
+   .track-selector-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 24px auto 16px auto;
+}
+
+.track-toggle-btn {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 32px;
+    border: 2px solid var(--brand-dark);
+    background-color: transparent;
+    color: var(--brand-dark);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 250ms var(--transition-smooth);
+}
+
+.track-toggle-btn:hover {
+    background-color: var(--bg-muted);
+}
+
+.track-toggle-btn.active {
+    background-color: var(--brand-dark);
+    color: var(--bg-main);
+}
+
+.track-status-indicator {
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+
+#current-track-title {
+    color: var(--brand-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 4px;
+}
+
 
 /* ==========================================
    MOBILE LAYOUT
