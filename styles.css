@@ -1,8 +1,11 @@
-html {
+/* ==========================================
+   1. VARIABLES, RESET & CORE SETUPS
+   ========================================== */
+   html {
     scroll-behavior: smooth;
 }
 
-#programs, #internship, #contact {
+#programs, #internship, #challenge-hub, #contact {
     scroll-margin-top: 100px;
 }
 
@@ -33,7 +36,7 @@ body {
 }
 
 /* ==========================================
-   NAVIGATION BAR (DESKTOP)
+   2. NAVIGATION BAR
    ========================================== */
 nav {
     display: flex;
@@ -65,8 +68,7 @@ nav a {
     color: var(--text-primary);
     font-weight: 500;
     letter-spacing: -0.01em;
-    transition: color 250ms var(--transition-smooth);
-    transition: transform 0.3s ease;
+    transition: color 250ms var(--transition-smooth), transform 0.3s ease;
 }
 
 nav a:not(.logo):hover {
@@ -75,12 +77,14 @@ nav a:not(.logo):hover {
 }
 
 /* ==========================================
-   HERO / INTRO SECTION
+   3. HERO / HEADER SECTIONS
    ========================================== */
 main {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 24px;
+    position: relative;
+    z-index: 1; /* Keeps main contents interactive */
 }
 
 .header {
@@ -157,7 +161,7 @@ main {
 }
 
 /* ==========================================
-   PROGRAMS EXPERIENCE (TASK 2)
+   4. PROGRAMS DISPLAY MODULAR BOXES
    ========================================== */
 .programs {
     background-color: var(--bg-muted);
@@ -210,13 +214,8 @@ main {
     border-color: rgba(0, 0, 0, 0.1);
 }
 
-.data-analytics-track {
-    border-top: 5px solid var(--brand-dark);
-}
-
-.web-development-track {
-    border-top: 5px solid var(--brand-accent);
-}
+.data-analytics-track { border-top: 5px solid var(--brand-dark); }
+.web-development-track { border-top: 5px solid var(--brand-accent); }
 
 .track-tag {
     align-self: flex-start;
@@ -298,57 +297,9 @@ main {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-
-
 /* ==========================================
-   CONTACT BRIDGING FOOTER
+   5. ROADMAP ENGINE WORKFLOW SECTIONS
    ========================================== */
-.contact {
-    text-align: center;
-    background: var(--brand-dark);
-    color: var(--bg-main);
-    padding: 80px 32px;
-    border-radius: 12px;
-    margin-bottom: 96px;
-}
-
-.contact h1 {
-    font-size: 35px;
-    font-weight: 700;
-    margin-bottom: 19px;
-}
-
-.contact p {
-    margin-bottom: 40px;
-    color: rgba(252, 252, 249, 0.75);
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contact .cta-btn {
-    background: var(--bg-main);
-    color: var(--brand-dark);
-}
-
-.contact .cta-btn:hover {
-    background: var(--brand-accent);
-    color: var(--bg-main);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 768px) {
-    .programs-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 768px) {
-    .programs-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 .internship {
     max-width: 1140px;
     margin: 0 auto 96px auto;
@@ -374,18 +325,56 @@ main {
     margin-bottom: 32px;
 }
 
+.track-selector-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 24px auto 16px auto;
+}
+
+.track-toggle-btn {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 32px;
+    border: 2px solid var(--brand-dark);
+    background-color: transparent;
+    color: var(--brand-dark);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 250ms var(--transition-smooth);
+}
+
+.track-toggle-btn:hover { background-color: var(--bg-muted); }
+.track-toggle-btn.active { background-color: var(--brand-dark); color: var(--bg-main); }
+
+.track-status-indicator {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.track-status-indicator p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#current-track-title {
+    display: inline-block;
+    width: 145px;
+    margin-left: 5px;
+
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+}
+
 .benefits-summary {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
     text-align: left;
-}
-
-@media (min-width: 768px) {
-    .benefits-summary {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
 }
 
 .benefit-item {
@@ -409,12 +398,6 @@ main {
     gap: 32px;
     margin-bottom: 56px;
     position: relative;
-}
-
-@media (min-width: 768px) {
-    .timeline-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 .timeline-card {
@@ -494,67 +477,265 @@ main {
 
 .phase-beginner { background-color: #e0f2fe; color: #0369a1; }
 .phase-intermediate-bg { background-color: #fef3c7; color: #b45309; }
-.phase-intermediate { background-color: #f3e8ff; color: #6b21a8; }
-.phase-advanced-bg { background-color: #e0f2f1; color: #004d40; }
-.phase-advanced { background-color: #fee2e2; color: #b91c1c; }
-
-/* ==========================================
-   INTERNSHIP VALUE LAYOUT
-   ========================================== */
-.internship {
-    max-width: 760px;
-    margin: 0 auto 96px auto;
-    text-align: center;
+.phase-intermediate { 
+    background-color: #f3e8ff; 
+    color: #6b21a8; 
 }
 
-.internship h1 {
-    color: var(--brand-dark);
-    font-size: 38px;
+.phase-advanced-bg { 
+    background-color: #e0f2f1; 
+    color: #004d40; 
+}
+
+.phase-advanced { 
+    background-color: #fee2e2; 
+    color: #b91c1c; 
+}
+
+/* ==========================================
+   6. CHALLENGE HUB SECTION (TASK 5)
+   ========================================== */
+.challenge-hub {
+    max-width: 1140px;
+    margin: 0 auto 96px auto;
+    background-color: var(--bg-muted);
+    padding: 80px 48px;
+    border-radius: 12px;
+}
+
+.hub-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 48px auto;
+}
+
+.hub-header h2 {
+    font-size: 35px;
     font-weight: 700;
-    margin-bottom: 24px;
+    color: var(--brand-dark);
+    margin-bottom: 16px;
     letter-spacing: -0.02em;
 }
 
-.internship p {
-    color: var(--text-secondary);
+.hub-header p {
     font-size: 18px;
-    margin-bottom: 40px;
+    color: var(--text-secondary);
 }
 
-.benefits {
-    text-align: left;
+.filter-dashboard {
     background: var(--bg-card);
-    padding: 40px 48px;
+    padding: 32px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-.benefits ul {
-    list-style-type: none;
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.benefits li {
-    margin-bottom: 19px;
-    position: relative;
-    padding-left: 29px;
+.filter-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brand-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    background: var(--bg-muted);
+    border: 1px solid transparent;
     color: var(--text-primary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 200ms ease;
 }
 
-.benefits li:last-child {
-    margin-bottom: 0;
+.filter-btn:hover {
+    background: #e2e8f0;
 }
 
-.benefits li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: var(--brand-accent);
-    font-weight: bold;
+.filter-btn.active {
+    background: var(--brand-dark);
+    color: var(--bg-main);
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+.challenge-card {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 300ms var(--transition-smooth);
+}
+
+.challenge-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.03);
+}
+
+.challenge-meta-line {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.tag-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.tag-track { 
+    background: var(--bg-muted); 
+    color: var(--brand-dark); 
+}
+
+.tag-diff { 
+    background: #fef3c7; 
+    color: #b45309; 
+}
+
+.challenge-card h3 {
+    font-size: 24px;
+    color: var(--brand-dark);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.challenge-card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.outcome-box {
+    background-color: var(--bg-main);
+    padding: 16px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    border-left: 3px solid var(--brand-accent);
+}
+
+.outcome-box strong {
+    color: var(--brand-dark);
+    display: block;
+    margin-bottom: 2px;
 }
 
 /* ==========================================
-   CONTACT BRIDGING FOOTER
+   7. MODAL DETAILED OVERLAY POPUPS (FIXED ACTION)
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 11, 20, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    /* CRITICAL FIX: Stops invisible window box from blocking background clicks */
+    pointer-events: none;
+    transition: opacity 300ms ease;
+    padding: 20px;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto; /* Restores actions smoothly when open */
+}
+
+.modal-window {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 640px;
+    border-radius: 12px;
+    padding: 48px;
+    position: relative;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 200ms ease;
+}
+
+.modal-close-btn:hover { 
+    color: var(--brand-dark); 
+}
+
+.modal-header-section { 
+    margin-bottom: 24px; 
+}
+
+.modal-header-section h2 { 
+    font-size: 30px; 
+    color: var(--brand-dark); 
+    margin-bottom: 8px; 
+}
+
+.modal-body-section { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.modal-detail-block h4 { 
+    font-size: 14px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    color: var(--brand-dark); 
+    margin-bottom: 6px; 
+    letter-spacing: 0.02em; 
+}
+
+.modal-detail-block p { 
+    font-size: 15px; 
+    color: var(--text-secondary); 
+}
+
+/* ==========================================
+   8. FOOTER SECTIONS
    ========================================== */
 .contact {
     text-align: center;
@@ -565,29 +746,18 @@ main {
     margin-bottom: 96px;
 }
 
-.contact h1 {
-    font-size: 35px;
-    font-weight: 700;
-    margin-bottom: 19px;
+.contact h1 { 
+    font-size: 35px; 
+    font-weight: 700; 
+    margin-bottom: 19px; 
 }
 
-.contact p {
-    margin-bottom: 40px;
-    color: rgba(252, 252, 249, 0.75);
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contact .cta-btn {
-    background: var(--bg-main);
-    color: var(--brand-dark);
-}
-
-.contact .cta-btn:hover {
-    background: var(--brand-accent);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+.contact p { 
+    margin-bottom: 40px; 
+    color: rgba(252, 252, 249, 0.75); 
+    max-width: 500px; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
 .footer {
@@ -598,90 +768,93 @@ main {
     font-size: 14px;
 }
 
-.footer p:first-child {
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: var(--brand-dark);
+.footer p:first-child { 
+    margin-bottom: 10px; 
+    font-weight: 600; 
+    color: var(--brand-dark); 
 }
 
 /* ==========================================
-   TRACK SELECTOR INTERFACE COMPONENT STYLES
+   9. RESPONSIVE DESIGN BREAKPOINTS
    ========================================== */
-   .track-selector-container {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin: 24px auto 16px auto;
-}
-
-.track-toggle-btn {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 600;
-    padding: 12px 32px;
-    border: 2px solid var(--brand-dark);
-    background-color: transparent;
-    color: var(--brand-dark);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 250ms var(--transition-smooth);
-}
-
-.track-toggle-btn:hover {
-    background-color: var(--bg-muted);
-}
-
-.track-toggle-btn.active {
-    background-color: var(--brand-dark);
-    color: var(--bg-main);
-}
-
-.track-status-indicator {
-    margin-bottom: 40px;
-    font-size: 16px;
-    color: var(--text-secondary);
-}
-
-#current-track-title {
-    color: var(--brand-accent);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-left: 4px;
-}
-
-
-/* ==========================================
-   MOBILE LAYOUT
-   ========================================== */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 24px;
-        padding: 32px 16px;
-    }
-
-    nav .logo img {
-        height: 80px;
+@media (min-width: 768px) {
+    .programs-grid, 
+    .timeline-container, 
+    .benefits-summary, 
+    .challenges-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     
-    .header h1 {
-        font-size: 38px;
+    .filter-dashboard {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
+    
+    .filter-group { 
+        width: 48%; 
+    }
+}
 
-    .cta {
+@media (max-width: 768px) {
+    nav { 
+        flex-direction: column; 
+        gap: 24px; 
+        padding: 32px 16px; 
+    }
+    
+    nav .logo img { 
+        height: 80px; 
+    }
+    
+    .header h1 { 
+        font-size: 38px; 
+    }
+    
+    /* CRITICAL FIXED COMPONENT ALIGNMENT RULES FOR MOBILE BUTTON TARGETS */
+    .track-selector-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        gap: 12px;
+        margin: 24px auto;
+    }
+    
+    .track-toggle-btn { 
+        width: 100%; 
+    }
+    
+    .cta, 
+    .benefits-cta {
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
     }
-
-    .cta a {
+    
+    .cta a, 
+    .benefits-cta a {
         display: block;
         width: 100%;
         max-width: 320px;
     }
-
-    .cta-btn {
-        width: 100%;
+    
+    .cta-btn, 
+    .program-cta-btn { 
+        width: 100%; 
+    }
+    
+    .challenge-hub { 
+        padding: 48px 20px; 
+    }
+    
+    .filter-dashboard { 
+        padding: 20px; 
+    }
+    
+    .modal-window { 
+        padding: 32px 20px; 
     }
 }

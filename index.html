@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <link rel="icon" href="./assets/favicon.ico" type="image/png">
     <title>Welcome to TechBridge</title>
 </head>
 <body>
     <nav>
-        <a alt="TechBridge Logo" class="logo" aria-label="TechBridge Logo"  href="#head">
-            <img src="./assets/techbridge-logo.png"/>
+        <a class="logo" aria-label="TechBridge Logo" href="#head">
+            <img src="./assets/techbridge-logo.png" alt="TechBridge Logo"/>
         </a>
         <a href="#programs">Programs</a>
         <a href="#internship">Internship</a>
+        <a href="#challenge-hub">Challenges</a>
         <a href="#contact">Contact</a>
     </nav>
     <main>
+        <!-- HERO / INTRO SECTION -->
         <div class="header" id="head">
-            <h1>
-                TechBridge by Baselink Services Limited
-            </h1>
-            <h2>
-                Bridging Learning to Real-World Experience.
-            </h2>
+            <h1>TechBridge by Baselink Services Limited</h1>
+            <h2>Bridging Learning to Real-World Experience.</h2>
             <p>Welcome to TechBridge. We launch your tech career by turning theoretical knowledge into practical expertise. Explore our intensive programs and gain the hands-on skills employers are looking for.</p>
         </div>
         <div class="cta">
@@ -34,6 +32,8 @@
                 <button class="cta-btn">Join Our Community</button>
             </a>
         </div>
+
+        <!-- PROGRAMS EXPERIENCE (TASK 2) -->
         <div class="programs" id="programs">
             <div class="programs-intro">
                 <h2>Our Practical Learning Programs</h2>
@@ -86,18 +86,18 @@
                 </div>
             </div>
         </div>
+
+        <!-- INTERACTIVE TWO-TRACK ROADMAP (TASK 4) -->
         <div class="internship" id="internship">
             <div class="internship-intro">
                 <h1>Your 30-Day Internship Journey</h1>
                 <p>TechBridge provides a highly structured 30-day practical internship program. Choose your preferred track below to explore the milestone requirements, project structure, and difficulty progression.</p>
                 
-                <!-- Track Selection Button Layout Controls -->
                 <div class="track-selector-container">
                     <button class="track-toggle-btn active" id="btn-webdev">Web Development</button>
                     <button class="track-toggle-btn" id="btn-data">Data Analytics</button>
                 </div>
 
-                <!-- Live Status Banner Text Indicator -->
                 <div class="track-status-indicator">
                     <p>Currently Viewing: <strong id="current-track-title">WEB DEVELOPMENT</strong></p>
                 </div>
@@ -113,6 +113,7 @@
             </div>
 
             <div class="timeline-container" id="roadmap-root">
+                <!-- App.js renders cards natively here based on selected state -->
             </div>
 
             <div class="benefits-cta">
@@ -122,9 +123,52 @@
             </div>
         </div>
 
-        <!-- ==========================================
-           CONTACT & FOOTER
-           ========================================== -->
+        <!-- NEW TECHBRIDGE CHALLENGE HUB SECTION (TASK 5) -->
+        <div class="challenge-hub" id="challenge-hub">
+            <div class="hub-header">
+                <h2>TechBridge Challenge Hub</h2>
+                <p>Explore practical challenges designed to help TechBridge interns apply their skills, unlock practical critical-thinking problem solving capabilities, and gain comprehensive real-world experience.</p>
+            </div>
+
+            <!-- Double-Filtering System Controls Controller Layout -->
+            <div class="filter-dashboard">
+                <div class="filter-group">
+                    <span class="filter-label">Filter by Track:</span>
+                    <div class="filter-buttons" id="track-filters">
+                        <button class="filter-btn active" data-filter-type="track" data-value="all">All</button>
+                        <button class="filter-btn" data-filter-type="track" data-value="analytics">Data Analytics</button>
+                        <button class="filter-btn" data-filter-type="track" data-value="webdev">Web Development</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">Filter by Difficulty:</span>
+                    <div class="filter-buttons" id="difficulty-filters">
+                        <button class="filter-btn active" data-filter-type="difficulty" data-value="all">All</button>
+                        <button class="filter-btn" data-filter-type="difficulty" data-value="Beginner">Beginner</button>
+                        <button class="filter-btn" data-filter-type="difficulty" data-value="Intermediate">Intermediate</button>
+                        <button class="filter-btn" data-filter-type="difficulty" data-value="Advanced">Advanced</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Challenge Card Injection Target Element -->
+            <div class="challenges-grid" id="challenges-container">
+                <!-- Challenges arrays rendered dynamically via javascript template literal injections -->
+            </div>
+        </div>
+
+        <!-- NEW CHALLENGE DETAILS MODAL COMPONENT WINDOW -->
+        <div class="modal-overlay" id="challenge-modal">
+            <div class="modal-window">
+                <button class="modal-close-btn" id="modal-close" aria-label="Close details overlay window">×</button>
+                <div id="modal-content-root">
+                    <!-- Populated dynamically via view buttons event targets -->
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT & FOOTER -->
         <div class="contact" id="contact">
             <h1>Connect With Us</h1>
             <p class="email">Don't learn in isolation. Join our vibrant network of peers, mentors, and tech enthusiasts.</p>
@@ -137,7 +181,6 @@
             <p>© 2026 TechBridge. All rights reserved.</p>
         </div>
     </main>
-
-    <script src="./app.js" defer></script>
+    <script src="app.js"></script>
 </body>
 </html>
